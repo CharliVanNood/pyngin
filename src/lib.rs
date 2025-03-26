@@ -1,13 +1,19 @@
 use pyo3::prelude::*;
 
+mod window_handler;
+
 #[pyfunction]
 fn version() -> PyResult<String> {
     Ok("0.0.1".to_string())
 }
 
 #[pyfunction]
-fn window() -> PyResult<String> {
-    Ok("unimplemented".to_string())
+fn window(a: Option<String>) -> PyResult<String> {
+    let name = a.unwrap_or_else(|| "PYNGIN".to_string());
+
+    window_handler::create_window(&name);
+
+    Ok(name)
 }
 
 #[pymodule]
