@@ -9,6 +9,7 @@ wgpu = "0.17"
 winit = "0.28"
 cgmath = "0.18"
 pollster = "0.2"
+bytemuck = { version = "1.4", features = ["derive"] }
 
 [lib]
 crate-type = ["cdylib"]
